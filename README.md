@@ -1,5 +1,18 @@
 # HUUM sauna controller
 
+# UPDATE FOR LOCAL CONTROL VIA SHORTCUTS
+1. Create a new Shortcut
+2. Choose the RUN SCRIPT OVER SSH
+3. Name it SAUNA STATUS
+4. Use this:  python3 path/to/huum_shortcut.py status
+5. Add the "SHOW SCRIPT RESULT" option
+6. Duplicate the shortcut twice, and then rename each respectively (Sauna Start; Sauna Stop)
+7. Edit for each:
+8. for Starting, include the desired temp in Celsius:  python3 path/to/huum_shortcut.py start 81.3
+9. for Stopping:  python3 path/to/huum_shortcut.py stop
+
+*this assumes you have a Raspberry Pi set up on your local network accessable via SSH.
+
 GET - api.huum.eu/action/home/status - returns your current sauna status</br>
 POST - api.huum.eu/action/home/start?targetTemperature=80 - wants targetTemperature as a parameter, which must be a number between 40 and 110, turns on the sauna for 3h</br>
 POST - api.huum.eu/action/home/stop - turns off the sauna</br>
